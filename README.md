@@ -20,3 +20,44 @@
 
 ### **Блок-схема алгоритма**
 >![Block-diagram](Block_diagram.drawio.png)
+
+### **Код программы**
+```
+string[] array = new string[5] { "sun", "7658", "max", "123", "shine" };
+string[] secondArray = new string[array.Length];
+
+void SortArray(string[] array, string[] secondArray)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            secondArray[count] = array[i];
+            count++;
+        }
+    }
+}
+
+void PrintArray(string[] array)
+{
+    Console.Write("[ ");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]}");
+        if (i < array.Length - 3)
+        {
+            Console.Write (",");
+        } 
+    }
+    Console.Write(" ]");
+}
+SortArray(array, secondArray);
+Console.Write("Вывод элементов нового массива -> ");
+PrintArray(secondArray);
+```
+### **Вывод в терминал**
+```
+PS C:\Users\alexd\Desktop\Final_test_work\task> dotnet run
+Вывод элементов нового массива -> [ sun,max,123 ]
+```
